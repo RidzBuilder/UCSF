@@ -1,0 +1,120 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ucsf.example/schema/ontology-entry-v0.1.json",
+  "title": "UCSF Ontology Entry",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "ontology_version",
+    "classification_id",
+    "semantic_definition",
+    "dimensions",
+    "relationships",
+    "control_mappings",
+    "lifecycle",
+    "provenance"
+  ],
+  "properties": {
+    "ontology_version": {
+      "type": "string",
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"
+    },
+    "classification_id": {
+      "type": "string",
+      "pattern": "^UCSF-C-[0-9]{9}$"
+    },
+    "semantic_definition": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["canonical_name", "definition", "security_domain"],
+      "properties": {
+        "canonical_name": {"type": "string", "minLength": 1, "maxLength": 200},
+        "definition": {"type": "string", "minLength": 1, "maxLength": 5000},
+        "security_domain": {"type": "string", "minLength": 1, "maxLength": 100},
+        "aliases": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {"type": "string", "minLength": 1}
+        }
+      }
+    },
+    "dimensions": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["asset", "data", "trust", "threat", "risk", "security_objective"],
+      "properties": {
+        "asset": {"type": "array", "uniqueItems": true, "items": {"type": "string"}},
+        "data": {"type": "array", "uniqueItems": true, "items": {"type": "string"}},
+        "trust": {"type": "array", "uniqueItems": true, "items": {"type": "string"}},
+        "threat": {"type": "array", "uniqueItems": true, "items": {"type": "string"}},
+        "risk": {"type": "array", "uniqueItems": true, "items": {"type": "string"}},
+        "security_objective": {"type": "array", "uniqueItems": true, "items": {"type": "string"}}
+      }
+    },
+    "relationships": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["relation_type", "target_id"],
+        "properties": {
+          "relation_type": {
+            "enum": ["is_a", "part_of", "depends_on", "related_to", "supersedes"]
+          },
+          "target_id": {
+            "type": "string",
+            "pattern": "^UCSF-C-[0-9]{9}$"
+          }
+        }
+      }
+    },
+    "control_mappings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["control_id", "mapping_type", "applicability"],
+        "properties": {
+          "control_id": {
+            "type": "string",
+            "pattern": "^UCSF-CTRL-[0-9]{3}$"
+          },
+          "mapping_type": {
+            "enum": ["mandatory", "conditional_mandatory", "supplementary"]
+          },
+          "applicability": {"type": "string", "minLength": 1}
+        }
+      }
+    },
+    "lifecycle": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "effective_version"],
+      "properties": {
+        "status": {
+          "enum": ["draft", "review", "approved", "deprecated", "superseded"]
+        },
+        "effective_version": {"type": "string", "minLength": 1},
+        "superseded_by": {
+          "type": ["string", "null"],
+          "pattern": "^UCSF-C-[0-9]{9}$"
+        }
+      }
+    },
+    "provenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["created_by", "created_at", "source_reference", "change_reason"],
+      "properties": {
+        "created_by": {"type": "string", "minLength": 1},
+        "created_at": {"type": "string", "format": "date-time"},
+        "source_reference": {
+          "type": "array",
+          "minItems": 1,
+          "items": {"type": "string"}
+        },
+        "change_reason": {"type": "string", "minLength": 1}
+      }
+    }
+  }
+}
