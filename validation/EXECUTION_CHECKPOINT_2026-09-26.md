@@ -12,3 +12,13 @@ Retry source-file integration using a supported, security-approved file transfer
 Source integration: BLOCKED.
 Repository-native test: NOT RUN.
 PR #1: remains draft and unmerged.
+
+
+## Addendum — 2026-09-26 post-PR verification
+- PR #1 is open and non-draft; head `dae0f99c8687d7e33bc951a9adb356561c94c959`.
+- Recorded CI evidence: workflow run `36212950303`, job `108323137812`, command `python -m unittest discover -s tests -v` under `validation/VAL-01A`, executed against merge ref `caf6a936bdac368ba4d9de20a5c94a4827e7a82a`.
+- The job log recorded 12 tests, all passing, with process success. This evidence is limited to the implemented VAL-01A reference suite.
+- The earlier checkpoint statements remain preserved as historical records and are superseded for current status by this addendum.
+- No external human/team reviewer is visible in GitHub review records. The existing review is authored by `RidzBuilder`; it is supplementary tool-assisted assessment, not organizationally independent review.
+- Current gate: VAL-01 remains BLOCKED pending independent review plus final provenance/reconciliation and clean-checkout acceptance evidence.
+- No merge to `main` has been performed or authorized during this execution.
