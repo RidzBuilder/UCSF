@@ -1,0 +1,24 @@
+{
+  "work_item": "UCSF-VAL-01A",
+  "baseline": "UCSF Fundamental Specification v0.2 Working Draft",
+  "test_cases": [
+    "ONTO-T01",
+    "ONTO-T02",
+    "ONTO-T03",
+    "ONTO-T04",
+    "ONTO-T05",
+    "ONTO-T06",
+    "ONTO-T07",
+    "ONTO-T08",
+    "ONTO-T09",
+    "ONTO-T10",
+    "ONTO-T11",
+    "ONTO-T12"
+  ],
+  "execution_status": "pending",
+  "limitations": [
+    "Local reference tests only",
+    "No independent review",
+    "No production deployment"
+  ]
+}
