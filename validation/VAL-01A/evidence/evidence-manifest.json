@@ -1,0 +1,60 @@
+{
+  "work_item": "UCSF-VAL-01A",
+  "baseline": "UCSF Fundamental Specification v0.2 Working Draft",
+  "execution_date": "2026-09-26",
+  "test_result": {
+    "suite": "unittest",
+    "tests": 12,
+    "passed": 12,
+    "failed": 0,
+    "return_code": 0
+  },
+  "claims": {
+    "production_deployment": false,
+    "independent_review": false,
+    "full_717m_population_validated": false,
+    "baseline_locked": false
+  },
+  "files": [
+    {
+      "path": "README.md",
+      "sha256": "c3eb6873ff87c43fb2dc8e38974417b51a946c233fc9b26a34d52ab3ab0c3bc9",
+      "bytes": 1034
+    },
+    {
+      "path": "evidence/VAL-01A-test-plan.json",
+      "sha256": "c62fd9d1a17243de360cd1f3713d0ea6bb06c71f052094c3b6e8722c8842ad61",
+      "bytes": 465
+    },
+    {
+      "path": "fixtures/valid-entry.json",
+      "sha256": "a55de7ddf546ac57a7aa74edfa53d52a2eed1af102e9eaf438e6b808454fcd28",
+      "bytes": 825
+    },
+    {
+      "path": "schemas/ontology-entry-v0.1.schema.json",
+      "sha256": "a83aee0e79d16d9c167204ba83c92a15c2f51c19813a4b0e5b42bd9ae1ce1334",
+      "bytes": 5307
+    },
+    {
+      "path": "src/__pycache__/ucsf_ontology_validator.cpython-313.pyc",
+      "sha256": "66b6840186b88aa706433718596a419d71d9806aac152b28c82eeb0768ffa92b",
+      "bytes": 6212
+    },
+    {
+      "path": "src/ucsf_ontology_validator.py",
+      "sha256": "edec1c28b60ecac68f81902a1203b377235f828d603d797014c835a00c426aab",
+      "bytes": 4459
+    },
+    {
+      "path": "tests/__pycache__/test_ontology_validator.cpython-313.pyc",
+      "sha256": "dcd0af285e81e29dcaf7743331a7d219fdbfc855ce8aea094a62993b5e98ff69",
+      "bytes": 7858
+    },
+    {
+      "path": "tests/test_ontology_validator.py",
+      "sha256": "d66f3cc182aad5a36de9155f87592d11ec5f95ce81885d1233edbfa6707355dd",
+      "bytes": 3530
+    }
+  ]
+}
