@@ -10,7 +10,7 @@ import re
 from typing import Any
 
 CAPACITY = 717_000_000
-ID_PATTERN = re.compile(r"^UCSF-C-(\\d{9})$")
+ID_PATTERN = re.compile(r"^UCSF-C-(\d{9})$")
 
 
 def validate_registry(
@@ -51,6 +51,8 @@ def validate_registry(
             if control_id not in approved_control_ids:
                 errors.append(f"{cid}: unknown control {control_id}")
 
+    # A supplied mandatory set must itself be represented by the approved
+    # control registry. Ontology entries never override this baseline rule.
     missing_mandatory_controls = mandatory_control_ids - approved_control_ids
     for control_id in sorted(missing_mandatory_controls):
         errors.append(f"baseline control registry missing mandatory control {control_id}")
