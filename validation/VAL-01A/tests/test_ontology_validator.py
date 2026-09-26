@@ -12,7 +12,7 @@ def entry(cid="UCSF-C-000000001", rels=None, mappings=None):
       "dimensions":{"asset":[],"data":[],"trust":[],"threat":[],"risk":[],"security_objective":[]},
       "relationships": rels or [],
       "control_mappings": mappings or [{"control_id":"UCSF-CTRL-001","mapping_type":"mandatory","applicability":"Always applicable"}],
-      "lifecycle":{"status":"draft","effective_version":"0.1.0","supersed_by":null},
+      "lifecycle":{"status":"draft","effective_version":"0.1.0","supersed_by":None},
       "provenance":{"created_by":"test","created_at":"2026-09-26T00:00:00Z","source_reference":["test-fixture"],"change_reason":"initial test"}
     }
 
@@ -24,7 +24,7 @@ class TestOntologyValidator(unittest.TestCase):
     def test_over_capacity(self):
         self.assertEqual(validate_registry([entry("UCSF-C-717000000")],CONTROLS,MANDATORY)["status"],"FAIL")
     def test_bad_format(self):
-        self.assertEqual(validate_registry([entry("UCSF-C-ABC")],CONTROLS,MANDATORY)"status"],"FAIL")
+        self.assertEqual(validate_registry([entry("UCSF-C-ABC")],CONTROLS,MANDATORY)["status"],"FAIL")
     def test_duplicate_id(self):
         result=validate_registry([entry(),entry()],CONTROLS,MANDATORY)
         self.assertTrue(any("duplicate classification ID" in e for e in result["errors"]))
