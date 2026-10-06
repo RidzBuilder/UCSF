@@ -1,0 +1,37 @@
+name: UCSF VAL-01A Validation
+# Path A: exact branch/PR head checkout plus unit and JSON Schema conformance.
+
+on:
+  push:
+    branches:
+      - ucsf/val-01-val-02b-integration
+  pull_request:
+    paths:
+      - 'validation/VAL-01A/**'
+      - '.github/workflows/validation-val01a.yml'
+
+jobs:
+  val-01a:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+      - name: Run VAL-01A reference tests
+        working-directory: validation/VAL-01A
+        env:
+          PYTHONPATH: src
+        run: python -m unittest discover -s tests -v
+      - name: Validate reference fixture against JSON Schema
+        run: |
+          python -m pip install --disable-pip-version-check --no-input jsonschema==4.26.0
+          python - <<'PY'
+          import json
+          from jsonschema import Draft202012Validator, FormatChecker
+          with open('validation/VAL-01A/schemas/ontology-entry-v0.1.schema.json', encoding='utf-8') as f:
+              schema = json.load(f)
+          with open('validation/VAL-01A/fixtures/valid-entry.json', encoding='utf-8') as f:
+              instance = json.load(f)
+          Draft202012Validator(schema, format_checker=FormatChecker()).validate(instance)
+          print('JSON Schema validation: PASS')
+          PY
