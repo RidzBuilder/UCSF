@@ -1,4 +1,5 @@
 name: UCSF VAL-01A Validation
+# Path A: exact branch/PR head checkout plus unit and JSON Schema conformance.
 
 on:
   push:
