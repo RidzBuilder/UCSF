@@ -23,8 +23,9 @@ Status: staged integration manifest; source payload integration is not complete.
 2. Add dependency and supported-runtime declarations.
 3. Run each workstream test suite from a clean checkout and record exact command, interpreter, commit SHA, output, and exit code.
 4. Review cross-workstream interface consistency and security assumptions.
-5. Add CI and verify a successful run on the PR head.
-6. Conduct independent review and update gates only when evidence is sufficient.
+5. Add CI and verify successful repository-native runs on the relevant branch HEADs.
+6. Conduct internal engineering review, reconcile evidence, and update gates only when evidence is sufficient.
+7. Treat independent external review as a separate assurance track, not a Path A R&D blocker.
 
 ## Gate
 Overall integration gate: **BLOCKED** until source payloads are committed and tests are reproduced from this branch. This manifest alone does not close VAL-01 or VAL-02B.
