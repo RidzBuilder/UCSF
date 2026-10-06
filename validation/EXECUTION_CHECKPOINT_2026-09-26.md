@@ -22,3 +22,13 @@ PR #1: remains draft and unmerged.
 - No external human/team reviewer is visible in GitHub review records. The existing review is authored by `RidzBuilder`; it is supplementary tool-assisted assessment, not organizationally independent review.
 - Current gate: VAL-01 remains BLOCKED pending independent review plus final provenance/reconciliation and clean-checkout acceptance evidence.
 - No merge to `main` has been performed or authorized during this execution.
+
+
+## Addendum — 2026-10-06 Path A execution
+- Active route is **Path A — Internal Engineering Validation**.
+- Independent external review is explicitly removed from the R&D critical path. It remains a separate assurance track.
+- Current PR #1 HEAD is `e661db7257ebca1d56ef94754977600140554f38`.
+- Latest VAL-01A workflow run `36259105142`, job `108451382213`, completed successfully with 12/12 tests passing.
+- The workflow clean checkout used PR merge ref `af4df3a0437c233e3347c7b99b508c1020bb741d`; therefore the result is merge-ref evidence and not final-HEAD evidence.
+- Path A remaining gates: exact final-HEAD clean-checkout validation, SHA-256 reconciliation, schema validation/reconciliation, and security/cross-workstream review for repository content actually present.
+- No merge to `main`; specification remains Working Draft.
