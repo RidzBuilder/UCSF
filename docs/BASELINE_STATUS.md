@@ -26,7 +26,7 @@ These are inherited local execution records and are not yet independently reprod
 ## Current integration status
 - Repository bootstrap is complete.
 - Integration branch is created.
-- PR #1 is open and non-draft against `main`; head is `dae0f99c8687d7e33bc951a9adb356561c94c959`.
+- PR #1 is open and non-draft against `main`; current head is `ea55b4b19c3cc9ae81a85aaf6e534d9aa6b30941`.
 - VAL-01A source, test, schema, fixture, and evidence files are present in the integration branch; repository-native CI evidence exists for the VAL-01A reference suite.
 - No merge to `main` has been authorized or performed.
 
@@ -36,8 +36,8 @@ These are inherited local execution records and are not yet independently reprod
 3. Integrate on the integration branch, preserving package provenance and licensing.
 4. Run the complete VAL-01 acceptance suite from a clean checkout and capture exact command, runtime, output, and commit SHA; current CI evidence covers the VAL-01A unittest suite only.
 5. Reconcile schema-vs-validator enforcement and execute schema validation if required by the governing acceptance criteria.
-6. Obtain genuinely independent review; the current GitHub review is authored by `RidzBuilder` and is not an external reviewer.
-7. Update audit gates only from evidence. Overall UCSF readiness remains BLOCKED/PARTIAL as applicable.
+6. Path A does not require independent external review as an R&D blocker. Keep independent review as a separate assurance track and do not claim it as completed without actual independent evidence.
+7. Update audit gates only from evidence; record FAIL/BLOCKED states and remediation explicitly. Overall UCSF readiness remains BLOCKED/PARTIAL as applicable.
 
 ## Security and governance invariants
 - No unauthorized external access, retaliation, or active defense outside owned/authorized scope.
