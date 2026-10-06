@@ -1,6 +1,6 @@
 # UCSF Integration Manifest — VAL-01A through VAL-02B
 
-Status: staged integration manifest; source payload integration is not complete.
+Status: staged integration manifest; Path A internal validation is active; source payload integration beyond VAL-01A is not complete.
 
 ## Provenance and workstream inventory
 
@@ -28,4 +28,4 @@ Status: staged integration manifest; source payload integration is not complete.
 7. Treat independent external review as a separate assurance track, not a Path A R&D blocker.
 
 ## Gate
-Overall integration gate: **BLOCKED** until source payloads are committed and tests are reproduced from this branch. This manifest alone does not close VAL-01 or VAL-02B.
+Overall integration gate: **BLOCKED/PARTIAL**. VAL-01A exact-HEAD tests and schema validation have been reproduced and passed after remediation. Source payloads for VAL-02/VAL-02A/VAL-02B remain absent from this repository branch, so broader integration is not closed. This manifest alone does not close VAL-01 or VAL-02B.
