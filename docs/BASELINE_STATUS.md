@@ -26,7 +26,7 @@ These are inherited local execution records and are not yet independently reprod
 ## Current integration status
 - Repository bootstrap is complete.
 - Integration branch is created.
-- PR #1 is open and non-draft against `main`; current head is `ea55b4b19c3cc9ae81a85aaf6e534d9aa6b30941`.
+- PR #1 is open and non-draft against `main`; current head is `b0734ace661108530e96e405d144c9e150ca66c0`.
 - VAL-01A source, test, schema, fixture, and evidence files are present in the integration branch; repository-native CI evidence exists for the VAL-01A reference suite.
 - No merge to `main` has been authorized or performed.
 
@@ -34,8 +34,8 @@ These are inherited local execution records and are not yet independently reprod
 1. Reconcile repository-file byte hashes against the recovered-source inventory; current inspection has not independently recomputed those SHA-256 values from a local checkout.
 2. Inspect code and tests for security-sensitive behavior, dependency assumptions, and cross-package interfaces.
 3. Integrate on the integration branch, preserving package provenance and licensing.
-4. Run the complete VAL-01 acceptance suite from a clean checkout and capture exact command, runtime, output, and commit SHA; current CI evidence covers the VAL-01A unittest suite only.
-5. Reconcile schema-vs-validator enforcement and execute schema validation if required by the governing acceptance criteria.
+4. Run the applicable VAL-01A acceptance suite from a clean checkout of the exact branch HEAD and capture exact command, runtime, output, and commit SHA; exact-HEAD CI evidence is now available for the latest validated code state.
+5. Reconcile schema-vs-validator enforcement. JSON Schema validation has been executed; an invalid-schema defect was found and remediated, with a subsequent exact-HEAD pass recorded.
 6. Path A does not require independent external review as an R&D blocker. Keep independent review as a separate assurance track and do not claim it as completed without actual independent evidence.
 7. Update audit gates only from evidence; record FAIL/BLOCKED states and remediation explicitly. Overall UCSF readiness remains BLOCKED/PARTIAL as applicable.
 
