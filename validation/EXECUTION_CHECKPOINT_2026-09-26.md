@@ -32,3 +32,15 @@ PR #1: remains draft and unmerged.
 - The workflow clean checkout used PR merge ref `af4df3a0437c233e3347c7b99b508c1020bb741d`; therefore the result is merge-ref evidence and not final-HEAD evidence.
 - Path A remaining gates: exact final-HEAD clean-checkout validation, SHA-256 reconciliation, schema validation/reconciliation, and security/cross-workstream review for repository content actually present.
 - No merge to `main`; specification remains Working Draft.
+
+
+## Addendum — 2026-10-06 Path A remediation and schema validation
+- Path A remains the active R&D validation route; independent external review remains a separate assurance track.
+- Exact-HEAD checkout validation was established by changing the workflow checkout to the PR head SHA.
+- Run `37485396154` / job `112343978046` checked out exact HEAD `715667aeede5fcf9a5f16dce62e7a53a8b3f3f73` and passed all 12 VAL-01A tests.
+- Schema validation was then added using JSON Schema Draft 2020-12 with `jsonschema==4.26.0` and `FormatChecker`.
+- Run `37485488668` / job `112344290814` exposed a real defect: the repository schema document was syntactically invalid (JSONDecodeError, line 239). The run is recorded as FAIL evidence, not hidden.
+- The schema was remediated in commit `728b1b6aa7ef3c30d4c0ced38a96ba36f9c314e5`.
+- Run `37485709038` completed SUCCESS on exact HEAD `728b1b6aa7ef3c30d4c0ced38a96ba36f9c314e5`: 12/12 VAL-01A tests passed and JSON Schema validation passed.
+- The recovered-source SHA-256 inventory remains a historical recovery snapshot. Because the schema was remediated, its prior recovered hash must not be asserted as matching the post-remediation repository file until a byte-level checksum is independently recomputed.
+- Overall VAL-01 remains PARTIAL/BLOCKED pending the remaining Path A evidence gates; no merge to `main` and no specification lock.
